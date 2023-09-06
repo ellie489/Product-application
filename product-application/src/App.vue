@@ -1,47 +1,40 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+<!-- <script setup>
+import { ref } from 'vue';
+
+const drawer = ref(true)
+</script> -->
+<script>
+import Login from './components/login.vue'
+export default {
+  name: 'App',
+  components: {
+    Login,
+  },
+  data: () => ({
+    //
+  }),
+};
 </script>
 
-<template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <template>
+  <!-- <v-layout class="rounded rounded-md"> -->
+    <v-app>
+      <v-app-bar title="ProApp">
+    </v-app-bar>
+    
+    <v-navigation-drawer>
+      <v-list>
+        <v-list-item title="Log in" to="/login"></v-list-item>
+        <v-list-item title="Register" to="/register"></v-list-item>
+        <v-list-item title="All Products" to="/all-products"></v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+    <v-main d-flex align-center justify-center >
+        <router-view />
+    </v-main>
+    </v-app>
+    
+  <!-- </v-layout> -->
 </template>
-
 <style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>
