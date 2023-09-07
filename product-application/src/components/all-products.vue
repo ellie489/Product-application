@@ -35,29 +35,7 @@ export default {
                 Price {{ card.price }}
             </v-card-text>
             <v-card-actions>
-              <v-btn class="me-1" variant="outlined" color="orange">Edit</v-btn>
-              <v-btn  variant="outlined" color="red">Delete</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-        <v-col cols="12" sm="6" md="4" lg="3" v-for="card in cards" :key="card.id">
-          <v-card class="mx-auto card" max-width="400">
-            <v-img
-              class="align-end text-white"
-              height="200"
-              :src="card.imageUrl"
-              cover
-            >
-              <v-card-title>{{ card.title }}</v-card-title>
-            </v-img>
-            <v-card-subtitle class="pt-4">
-              Price {{ card.price }}
-            </v-card-subtitle>
-            <v-card-text>
-              <div>{{ card.description }}</div>
-            </v-card-text>
-            <v-card-actions>
-              <v-btn color="orange">Edit</v-btn>
+              <v-btn class="me-1" color="orange">Edit</v-btn>
               <v-btn color="red">Delete</v-btn>
             </v-card-actions>
           </v-card>
@@ -65,175 +43,180 @@ export default {
         <v-col cols="12" sm="6" md="4" lg="3" v-for="card in cards" :key="card.id">
           <v-card class="mx-auto card" max-width="400">
             <v-img
-              class="align-end text-white"
               height="200"
               :src="card.imageUrl"
               cover
             >
-              <v-card-title>{{ card.title }}</v-card-title>
-            </v-img>
-            <v-card-subtitle class="pt-4">
-              Price {{ card.price }}
+            </v-img> 
+            <v-card-title>{{ card.title }}</v-card-title>
+            <v-card-subtitle class="pt-2">           
+              <div>{{ card.description }}</div>
             </v-card-subtitle>
             <v-card-text>
-              <div>{{ card.description }}</div>
+                Price {{ card.price }}
             </v-card-text>
             <v-card-actions>
-              <v-btn color="orange">Edit</v-btn>
+              <v-btn class="me-1" color="orange">Edit</v-btn>
               <v-btn color="red">Delete</v-btn>
             </v-card-actions>
           </v-card>
-        </v-col>
-        <v-col cols="12" sm="6" md="4" lg="3" v-for="card in cards" :key="card.id">
+        </v-col>        <v-col cols="12" sm="6" md="4" lg="3" v-for="card in cards" :key="card.id">
           <v-card class="mx-auto card" max-width="400">
             <v-img
-              class="align-end text-white"
               height="200"
               :src="card.imageUrl"
               cover
             >
-              <v-card-title>{{ card.title }}</v-card-title>
-            </v-img>
-            <v-card-subtitle class="pt-4">
-              Price {{ card.price }}
+            </v-img> 
+            <v-card-title>{{ card.title }}</v-card-title>
+            <v-card-subtitle class="pt-2">           
+              <div>{{ card.description }}</div>
             </v-card-subtitle>
             <v-card-text>
-              <div>{{ card.description }}</div>
+                Price {{ card.price }}
             </v-card-text>
             <v-card-actions>
-              <v-btn color="orange">Edit</v-btn>
+              <v-btn class="me-1" color="orange">Edit</v-btn>
               <v-btn color="red">Delete</v-btn>
             </v-card-actions>
           </v-card>
-        </v-col>
-        <v-col cols="12" sm="6" md="4" lg="3" v-for="card in cards" :key="card.id">
+        </v-col>        <v-col cols="12" sm="6" md="4" lg="3" v-for="card in cards" :key="card.id">
           <v-card class="mx-auto card" max-width="400">
             <v-img
-              class="align-end text-white"
               height="200"
               :src="card.imageUrl"
               cover
             >
-              <v-card-title>{{ card.title }}</v-card-title>
-            </v-img>
-            <v-card-subtitle class="pt-4">
-              Price {{ card.price }}
+            </v-img> 
+            <v-card-title>{{ card.title }}</v-card-title>
+            <v-card-subtitle class="pt-2">           
+              <div>{{ card.description }}</div>
             </v-card-subtitle>
             <v-card-text>
-              <div>{{ card.description }}</div>
+                Price {{ card.price }}
             </v-card-text>
             <v-card-actions>
-              <v-btn color="orange">Edit</v-btn>
+              <v-btn class="me-1" color="orange">Edit</v-btn>
               <v-btn color="red">Delete</v-btn>
             </v-card-actions>
           </v-card>
-        </v-col>
-        <v-col cols="12" sm="6" md="4" lg="3" v-for="card in cards" :key="card.id">
+        </v-col>        <v-col cols="12" sm="6" md="4" lg="3" v-for="card in cards" :key="card.id">
           <v-card class="mx-auto card" max-width="400">
             <v-img
-              class="align-end text-white"
               height="200"
               :src="card.imageUrl"
               cover
             >
-              <v-card-title>{{ card.title }}</v-card-title>
-            </v-img>
-            <v-card-subtitle class="pt-4">
-              Price {{ card.price }}
+            </v-img> 
+            <v-card-title>{{ card.title }}</v-card-title>
+            <v-card-subtitle class="pt-2">           
+              <div>{{ card.description }}</div>
             </v-card-subtitle>
             <v-card-text>
-              <div>{{ card.description }}</div>
+                Price {{ card.price }}
             </v-card-text>
             <v-card-actions>
-              <v-btn color="orange">Edit</v-btn>
+              <v-btn class="me-1" color="orange">Edit</v-btn>
               <v-btn color="red">Delete</v-btn>
             </v-card-actions>
           </v-card>
-        </v-col>
-        <v-col cols="12" sm="6" md="4" lg="3" v-for="card in cards" :key="card.id">
+        </v-col>        <v-col cols="12" sm="6" md="4" lg="3" v-for="card in cards" :key="card.id">
           <v-card class="mx-auto card" max-width="400">
             <v-img
-              class="align-end text-white"
               height="200"
               :src="card.imageUrl"
               cover
             >
-              <v-card-title>{{ card.title }}</v-card-title>
-            </v-img>
-            <v-card-subtitle class="pt-4">
-              Price {{ card.price }}
+            </v-img> 
+            <v-card-title>{{ card.title }}</v-card-title>
+            <v-card-subtitle class="pt-2">           
+              <div>{{ card.description }}</div>
             </v-card-subtitle>
             <v-card-text>
-              <div>{{ card.description }}</div>
+                Price {{ card.price }}
             </v-card-text>
             <v-card-actions>
-              <v-btn color="orange">Edit</v-btn>
+              <v-btn class="me-1" color="orange">Edit</v-btn>
               <v-btn color="red">Delete</v-btn>
             </v-card-actions>
           </v-card>
-        </v-col>
-        <v-col cols="12" sm="6" md="4" lg="3" v-for="card in cards" :key="card.id">
+        </v-col>        <v-col cols="12" sm="6" md="4" lg="3" v-for="card in cards" :key="card.id">
           <v-card class="mx-auto card" max-width="400">
             <v-img
-              class="align-end text-white"
               height="200"
               :src="card.imageUrl"
               cover
             >
-              <v-card-title>{{ card.title }}</v-card-title>
-            </v-img>
-            <v-card-subtitle class="pt-4">
-              Price {{ card.price }}
+            </v-img> 
+            <v-card-title>{{ card.title }}</v-card-title>
+            <v-card-subtitle class="pt-2">           
+              <div>{{ card.description }}</div>
             </v-card-subtitle>
             <v-card-text>
-              <div>{{ card.description }}</div>
+                Price {{ card.price }}
             </v-card-text>
             <v-card-actions>
-              <v-btn color="orange">Edit</v-btn>
+              <v-btn class="me-1" color="orange">Edit</v-btn>
               <v-btn color="red">Delete</v-btn>
             </v-card-actions>
           </v-card>
-        </v-col>
-        <v-col cols="12" sm="6" md="4" lg="3" v-for="card in cards" :key="card.id">
+        </v-col>        <v-col cols="12" sm="6" md="4" lg="3" v-for="card in cards" :key="card.id">
           <v-card class="mx-auto card" max-width="400">
             <v-img
-              class="align-end text-white"
               height="200"
               :src="card.imageUrl"
               cover
             >
-              <v-card-title>{{ card.title }}</v-card-title>
-            </v-img>
-            <v-card-subtitle class="pt-4">
-              Price {{ card.price }}
+            </v-img> 
+            <v-card-title>{{ card.title }}</v-card-title>
+            <v-card-subtitle class="pt-2">           
+              <div>{{ card.description }}</div>
             </v-card-subtitle>
             <v-card-text>
-              <div>{{ card.description }}</div>
+                Price {{ card.price }}
             </v-card-text>
             <v-card-actions>
-              <v-btn color="orange">Edit</v-btn>
+              <v-btn class="me-1" color="orange">Edit</v-btn>
               <v-btn color="red">Delete</v-btn>
             </v-card-actions>
           </v-card>
-        </v-col>
-        <v-col cols="12" sm="6" md="4" lg="3" v-for="card in cards" :key="card.id">
+        </v-col>        <v-col cols="12" sm="6" md="4" lg="3" v-for="card in cards" :key="card.id">
           <v-card class="mx-auto card" max-width="400">
             <v-img
-              class="align-end text-white"
               height="200"
               :src="card.imageUrl"
               cover
             >
-              <v-card-title>{{ card.title }}</v-card-title>
-            </v-img>
-            <v-card-subtitle class="pt-4">
-              Price {{ card.price }}
+            </v-img> 
+            <v-card-title>{{ card.title }}</v-card-title>
+            <v-card-subtitle class="pt-2">           
+              <div>{{ card.description }}</div>
             </v-card-subtitle>
             <v-card-text>
-              <div>{{ card.description }}</div>
+                Price {{ card.price }}
             </v-card-text>
             <v-card-actions>
-              <v-btn color="orange">Edit</v-btn>
+              <v-btn class="me-1" color="orange">Edit</v-btn>
+              <v-btn color="red">Delete</v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>        <v-col cols="12" sm="6" md="4" lg="3" v-for="card in cards" :key="card.id">
+          <v-card class="mx-auto card" max-width="400">
+            <v-img
+              height="200"
+              :src="card.imageUrl"
+              cover
+            >
+            </v-img> 
+            <v-card-title>{{ card.title }}</v-card-title>
+            <v-card-subtitle class="pt-2">           
+              <div>{{ card.description }}</div>
+            </v-card-subtitle>
+            <v-card-text>
+                Price {{ card.price }}
+            </v-card-text>
+            <v-card-actions>
+              <v-btn class="me-1" color="orange">Edit</v-btn>
               <v-btn color="red">Delete</v-btn>
             </v-card-actions>
           </v-card>
