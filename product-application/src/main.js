@@ -2,6 +2,7 @@ import './assets/main.css'
 import login from "./components/login.vue"
 import register from "./components/register.vue"
 import allProducts from "./components/all-products.vue"
+import createProduct from "./components/create-product.vue"
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import App from './App.vue'
@@ -9,7 +10,6 @@ import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
-
 import { aliases, mdi } from "vuetify/lib/iconsets/mdi";
 import { createRouter, createWebHistory } from 'vue-router'
 const pinia = createPinia()
@@ -31,7 +31,8 @@ const router = createRouter({
     routes: [
         { path: '/login', component: login },
         { path: '/register', component: register },
-        { path: '/all-products', component: allProducts }
+        { path: '/all-products', component: allProducts },
+        { path: '/create-product', component: createProduct },
     ]
 });
 

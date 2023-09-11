@@ -1,479 +1,64 @@
-<script>
-export default {
-  data() {
-    return {
-      cards: [
-        {
-          id: 1,
-          title: 'iPhone 9',
-          price: 549,
-          description: 'An apple mobile which is nothing like apple',
-          imageUrl: 'https://i.dummyjson.com/data/products/1/1.jpg',
-        },
-        // Add more card objects here
-      ],
-    };
-  },
-};</script>
+<script setup>
+
+import { ref, onMounted } from "vue";
+import axios from "axios";
+const products = ref([]);
+
+const fetchProducts = async () => {
+    try {
+        const response = await axios.get("https://dummyjson.com/products");
+        products.value = response.data.products;
+        console.log(products.value)
+    }
+    catch (error) {
+        console.log(error);
+    }
+};
+
+onMounted(() => {
+    fetchProducts();
+});
+
+const deleteProduct = async (productId) => {
+
+  const confirmDeletion = window.confirm("Are you sure you want to delete this product?");
+  
+  if (!confirmDeletion) {
+    return;
+  }
+  try {
+    await axios.delete(`https://dummyjson.com/products/${productId}`);
+    
+    products.value = products.value.filter((product) => product.id !== productId);
+  } catch (error) {
+    console.log(error);
+  }
+};
+</script>
 
 <template>
     <v-container>
       <v-row>
-        <v-col cols="12" sm="6" md="4" lg="3" v-for="card in cards" :key="card.id">
-          <v-card class="mx-auto card" max-width="400">
-            <v-img
-              height="200"
-              :src="card.imageUrl"
-              cover
+        <v-col cols="12" sm="6" md="4" lg="3" v-for="product in products" :key="product.id">
+          <v-card class="mx-auto card" max-width="400" height="100%">
+            <v-img 
+              height="250"
+              :src="product.images[0]"
             >
             </v-img> 
-            <v-card-title>{{ card.title }}</v-card-title>
-            <v-card-subtitle class="pt-2">           
-              <div>{{ card.description }}</div>
+            <v-card-title>{{ product.title }}</v-card-title>
+            <v-card-subtitle class="pt-2 text-wrap">           
+             {{ product.description }}
             </v-card-subtitle>
-            <v-card-text>
-                Price {{ card.price }}
+            <v-card-text class="text-blue font-weight-bold">
+                Price: {{ product.price }}$
             </v-card-text>
             <v-card-actions>
               <v-btn class="me-1" color="orange">Edit</v-btn>
-              <v-btn color="red">Delete</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-        <v-col cols="12" sm="6" md="4" lg="3" v-for="card in cards" :key="card.id">
-          <v-card class="mx-auto card" max-width="400">
-            <v-img
-              height="200"
-              :src="card.imageUrl"
-              cover
-            >
-            </v-img> 
-            <v-card-title>{{ card.title }}</v-card-title>
-            <v-card-subtitle class="pt-2">           
-              <div>{{ card.description }}</div>
-            </v-card-subtitle>
-            <v-card-text>
-                Price {{ card.price }}
-            </v-card-text>
-            <v-card-actions>
-              <v-btn class="me-1" color="orange">Edit</v-btn>
-              <v-btn color="red">Delete</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>        <v-col cols="12" sm="6" md="4" lg="3" v-for="card in cards" :key="card.id">
-          <v-card class="mx-auto card" max-width="400">
-            <v-img
-              height="200"
-              :src="card.imageUrl"
-              cover
-            >
-            </v-img> 
-            <v-card-title>{{ card.title }}</v-card-title>
-            <v-card-subtitle class="pt-2">           
-              <div>{{ card.description }}</div>
-            </v-card-subtitle>
-            <v-card-text>
-                Price {{ card.price }}
-            </v-card-text>
-            <v-card-actions>
-              <v-btn class="me-1" color="orange">Edit</v-btn>
-              <v-btn color="red">Delete</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>        <v-col cols="12" sm="6" md="4" lg="3" v-for="card in cards" :key="card.id">
-          <v-card class="mx-auto card" max-width="400">
-            <v-img
-              height="200"
-              :src="card.imageUrl"
-              cover
-            >
-            </v-img> 
-            <v-card-title>{{ card.title }}</v-card-title>
-            <v-card-subtitle class="pt-2">           
-              <div>{{ card.description }}</div>
-            </v-card-subtitle>
-            <v-card-text>
-                Price {{ card.price }}
-            </v-card-text>
-            <v-card-actions>
-              <v-btn class="me-1" color="orange">Edit</v-btn>
-              <v-btn color="red">Delete</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>        <v-col cols="12" sm="6" md="4" lg="3" v-for="card in cards" :key="card.id">
-          <v-card class="mx-auto card" max-width="400">
-            <v-img
-              height="200"
-              :src="card.imageUrl"
-              cover
-            >
-            </v-img> 
-            <v-card-title>{{ card.title }}</v-card-title>
-            <v-card-subtitle class="pt-2">           
-              <div>{{ card.description }}</div>
-            </v-card-subtitle>
-            <v-card-text>
-                Price {{ card.price }}
-            </v-card-text>
-            <v-card-actions>
-              <v-btn class="me-1" color="orange">Edit</v-btn>
-              <v-btn color="red">Delete</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>        <v-col cols="12" sm="6" md="4" lg="3" v-for="card in cards" :key="card.id">
-          <v-card class="mx-auto card" max-width="400">
-            <v-img
-              height="200"
-              :src="card.imageUrl"
-              cover
-            >
-            </v-img> 
-            <v-card-title>{{ card.title }}</v-card-title>
-            <v-card-subtitle class="pt-2">           
-              <div>{{ card.description }}</div>
-            </v-card-subtitle>
-            <v-card-text>
-                Price {{ card.price }}
-            </v-card-text>
-            <v-card-actions>
-              <v-btn class="me-1" color="orange">Edit</v-btn>
-              <v-btn color="red">Delete</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>        <v-col cols="12" sm="6" md="4" lg="3" v-for="card in cards" :key="card.id">
-          <v-card class="mx-auto card" max-width="400">
-            <v-img
-              height="200"
-              :src="card.imageUrl"
-              cover
-            >
-            </v-img> 
-            <v-card-title>{{ card.title }}</v-card-title>
-            <v-card-subtitle class="pt-2">           
-              <div>{{ card.description }}</div>
-            </v-card-subtitle>
-            <v-card-text>
-                Price {{ card.price }}
-            </v-card-text>
-            <v-card-actions>
-              <v-btn class="me-1" color="orange">Edit</v-btn>
-              <v-btn color="red">Delete</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>        <v-col cols="12" sm="6" md="4" lg="3" v-for="card in cards" :key="card.id">
-          <v-card class="mx-auto card" max-width="400">
-            <v-img
-              height="200"
-              :src="card.imageUrl"
-              cover
-            >
-            </v-img> 
-            <v-card-title>{{ card.title }}</v-card-title>
-            <v-card-subtitle class="pt-2">           
-              <div>{{ card.description }}</div>
-            </v-card-subtitle>
-            <v-card-text>
-                Price {{ card.price }}
-            </v-card-text>
-            <v-card-actions>
-              <v-btn class="me-1" color="orange">Edit</v-btn>
-              <v-btn color="red">Delete</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>        <v-col cols="12" sm="6" md="4" lg="3" v-for="card in cards" :key="card.id">
-          <v-card class="mx-auto card" max-width="400">
-            <v-img
-              height="200"
-              :src="card.imageUrl"
-              cover
-            >
-            </v-img> 
-            <v-card-title>{{ card.title }}</v-card-title>
-            <v-card-subtitle class="pt-2">           
-              <div>{{ card.description }}</div>
-            </v-card-subtitle>
-            <v-card-text>
-                Price {{ card.price }}
-            </v-card-text>
-            <v-card-actions>
-              <v-btn class="me-1" color="orange">Edit</v-btn>
-              <v-btn color="red">Delete</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>        <v-col cols="12" sm="6" md="4" lg="3" v-for="card in cards" :key="card.id">
-          <v-card class="mx-auto card" max-width="400">
-            <v-img
-              height="200"
-              :src="card.imageUrl"
-              cover
-            >
-            </v-img> 
-            <v-card-title>{{ card.title }}</v-card-title>
-            <v-card-subtitle class="pt-2">           
-              <div>{{ card.description }}</div>
-            </v-card-subtitle>
-            <v-card-text>
-                Price {{ card.price }}
-            </v-card-text>
-            <v-card-actions>
-              <v-btn class="me-1" color="orange">Edit</v-btn>
-              <v-btn color="red">Delete</v-btn>
+              <v-btn color="red" @click="deleteProduct(product.id)">Delete</v-btn>
             </v-card-actions>
           </v-card>
         </v-col>
       </v-row>
     </v-container>
   </template>
-
-<!-- <template>
-    <v-container>
-        <v-row >
-            <v-col col="12" md="4">
-               <v-card
-                class="mx-auto"
-                max-width="400"
-                >
-                <v-img
-                class="align-end text-white"
-                height="200"
-                src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-                cover
-                >
-                <v-card-title>Top 10 Australian beaches</v-card-title>
-                </v-img>
-
-                <v-card-subtitle class="pt-4">
-                Number 10
-                </v-card-subtitle>
-
-                <v-card-text>
-                <div>Whitehaven Beach</div>
-
-                <div>Whitsunday Island, Whitsunday Islands</div>
-                </v-card-text>
-
-                <v-card-actions>
-                <v-btn color="orange">
-                    Edit
-                </v-btn>
-
-                <v-btn color="orange">
-                    Delete
-                </v-btn>
-                </v-card-actions>
-            </v-card> 
-            </v-col>
-            <v-col col="12" md="4">
-                <v-card
-                class="mx-auto"
-                max-width="400"
-                >
-                <v-img
-                class="align-end text-white"
-                height="200"
-                src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-                cover
-                >
-                <v-card-title>Top 10 Australian beaches</v-card-title>
-                </v-img>
-
-                <v-card-subtitle class="pt-4">
-                Number 10
-                </v-card-subtitle>
-
-                <v-card-text>
-                <div>Whitehaven Beach</div>
-
-                <div>Whitsunday Island, Whitsunday Islands</div>
-                </v-card-text>
-
-                <v-card-actions>
-                <v-btn color="orange">
-                    Edit
-                </v-btn>
-
-                <v-btn color="orange">
-                    Delete
-                </v-btn>
-                </v-card-actions>
-            </v-card> 
-            </v-col>
-            <v-col col="12" md="4">
-                <v-card
-                class="mx-auto"
-                max-width="400"
-                >
-                <v-img
-                class="align-end text-white"
-                height="200"
-                src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-                cover
-                >
-                <v-card-title>Top 10 Australian beaches</v-card-title>
-                </v-img>
-
-                <v-card-subtitle class="pt-4">
-                Number 10
-                </v-card-subtitle>
-
-                <v-card-text>
-                <div>Whitehaven Beach</div>
-
-                <div>Whitsunday Island, Whitsunday Islands</div>
-                </v-card-text>
-
-                <v-card-actions>
-                <v-btn color="orange">
-                    Edit
-                </v-btn>
-
-                <v-btn color="orange">
-                    Delete
-                </v-btn>
-                </v-card-actions>
-            </v-card> 
-            </v-col>
-            <v-col col="12" md="4">
-                <v-card
-                class="mx-auto"
-                max-width="400"
-                >
-                <v-img
-                class="align-end text-white"
-                height="200"
-                src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-                cover
-                >
-                <v-card-title>Top 10 Australian beaches</v-card-title>
-                </v-img>
-
-                <v-card-subtitle class="pt-4">
-                Number 10
-                </v-card-subtitle>
-
-                <v-card-text>
-                <div>Whitehaven Beach</div>
-
-                <div>Whitsunday Island, Whitsunday Islands</div>
-                </v-card-text>
-
-                <v-card-actions>
-                <v-btn color="orange">
-                    Edit
-                </v-btn>
-
-                <v-btn color="orange">
-                    Delete
-                </v-btn>
-                </v-card-actions>
-            </v-card> 
-            </v-col>
-            <v-col col="12" md="4">
-                <v-card
-                class="mx-auto"
-                max-width="400"
-                >
-                <v-img
-                class="align-end text-white"
-                height="200"
-                src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-                cover
-                >
-                <v-card-title>Top 10 Australian beaches</v-card-title>
-                </v-img>
-
-                <v-card-subtitle class="pt-4">
-                Number 10
-                </v-card-subtitle>
-
-                <v-card-text>
-                <div>Whitehaven Beach</div>
-
-                <div>Whitsunday Island, Whitsunday Islands</div>
-                </v-card-text>
-
-                <v-card-actions>
-                <v-btn color="orange">
-                    Edit
-                </v-btn>
-
-                <v-btn color="orange">
-                    Delete
-                </v-btn>
-                </v-card-actions>
-            </v-card> 
-            </v-col>
-            <v-col col="12" md="4">
-                <v-card
-                class="mx-auto"
-                max-width="400"
-                >
-                <v-img
-                class="align-end text-white"
-                height="200"
-                src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-                cover
-                >
-                <v-card-title>Top 10 Australian beaches</v-card-title>
-                </v-img>
-
-                <v-card-subtitle class="pt-4">
-                Number 10
-                </v-card-subtitle>
-
-                <v-card-text>
-                <div>Whitehaven Beach</div>
-
-                <div>Whitsunday Island, Whitsunday Islands</div>
-                </v-card-text>
-
-                <v-card-actions>
-                <v-btn color="orange">
-                    Edit
-                </v-btn>
-
-                <v-btn color="orange">
-                    Delete
-                </v-btn>
-                </v-card-actions>
-            </v-card> 
-            </v-col>
-            <v-col col="12" md="4">
-                <v-card
-                class="mx-auto"
-                max-width="400"
-                >
-                <v-img
-                class="align-end text-white"
-                height="200"
-                src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
-                cover
-                >
-                <v-card-title>Top 10 Australian beaches</v-card-title>
-                </v-img>
-
-                <v-card-subtitle class="pt-4">
-                Number 10
-                </v-card-subtitle>
-
-                <v-card-text>
-                <div>Whitehaven Beach</div>
-
-                <div>Whitsunday Island, Whitsunday Islands</div>
-                </v-card-text>
-
-                <v-card-actions>
-                <v-btn color="orange">
-                    Edit
-                </v-btn>
-
-                <v-btn color="orange">
-                    Delete
-                </v-btn>
-                </v-card-actions>
-            </v-card> 
-            </v-col>
-        </v-row>
-    </v-container>
-    
-</template> -->
