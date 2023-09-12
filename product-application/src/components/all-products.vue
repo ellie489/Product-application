@@ -6,7 +6,7 @@ const products = ref([]);
 
 const fetchProducts = async () => {
     try {
-        const response = await axios.get("https://dummyjson.com/products");
+        const response = await axios.get("https://dummyjson.com/products?limit=50");
         products.value = response.data.products;
         console.log(products.value)
     }
